@@ -5,7 +5,9 @@ function test() {
 //Slideshow Function
 var i = 0;
 var images = [
-  "/bro.jpg"
+  "FoodPictures/1.jpg",
+	"FoodPictures/2.jpg",
+	"FoodPictures/3.jpg"
 ];
 var time = 3000;
 
