@@ -3,9 +3,7 @@ function test() {
 }
 
 //Reading names of recipes onto first page
-let fileArray = ["recipe/name.csv", "recipe/ingredients.csv", "recipe/directions.csv"];
-
-var data;
+let fileArray = ["recipe/name.csv", "recipe/ingredients.csv", "recipe/directions.csv", "recipe/descriptions.csv"];
 
 function readFile(file){
 	var data = [];
@@ -29,7 +27,9 @@ function readFile(file){
 var names= readFile(0);
 var ingredients = readFile(1);
 var directions = readFile(2);
+var description = readFile(3);
 
 console.log("Names:",names);
 console.log("ingredients:",ingredients);
 console.log("directions:",directions);
+console.log("description:",description);

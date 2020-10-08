@@ -4,7 +4,10 @@ var images = [
 	"images/pregnant.jpg",
   "FoodPictures/1.jpg",
 	"FoodPictures/2.jpg",
-	"FoodPictures/3.jpg"
+	"FoodPictures/3.jpg",
+	"FoodPictures/4.jpg",
+	"FoodPictures/5.jpg",
+	"FoodPictures/6.jpg"
 ];
 var time = 2000;
 
