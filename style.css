@@ -2,16 +2,31 @@ html {
     height: 100%;
     margin: 0;
 }
-body 
-    background-color: pink;
+body {
+    background-color:floralwhite;
     min-height: 100%;
     margin: 0;
+}
+
+nav.nav-wrapper{
+	
+}
+.nav-wrapper a{
+	letter-spacing: 15px;
+	margin-bottom: 10px;
+	font-size: 700px;
+	font-weight: 600px;
+}
+
+.slide img{
+
 }
 
 root-layout{
 	height: 100%;
 }
 
-content{
+.content{
+	margin-top: 30px;
 	height:100%;
 }

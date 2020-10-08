@@ -2,24 +2,34 @@ function test() {
 	document.getElementById("test").innerHTML = "its working if you can see this";
 }
 
-//Slideshow Function
-var i = 0;
-var images = [
-  "FoodPictures/1.jpg",
-	"FoodPictures/2.jpg",
-	"FoodPictures/3.jpg"
-];
-var time = 3000;
+//Reading names of recipes onto first page
+let fileArray = ["recipe/name.csv", "recipe/ingredients.csv", "recipe/directions.csv"];
 
-function changeImg() {
-  document.slide.src = images[i];
-  if (i < images.length - 1) {
-    i++;
-  } else {
-    i = 0;
-  }
-  setTimeout("changeImg()", time);
-}
+var data;
 
-window.onload = changeImg;
+function readFile(file){
+	var data = [];
+	Papa.parse(fileArray[file], {
+    delimiter: ",",
+	  download: true,
+    header: true,
+    keepEmptyRows:false,
+    skipEmptyLines: true,
+      complete: function(results) {
+				console.log("Finished:", results.data);
+				for(var i=0; i<results.data.length; i++){
+					data.push(results.data[i]);
+				}
+//        return result;
+      }
+    }); 
+	return data;
+};
 
+var names= readFile(0);
+var ingredients = readFile(1);
+var directions = readFile(2);
+
+console.log("Names:",names);
+console.log("ingredients:",ingredients);
+console.log("directions:",directions);
