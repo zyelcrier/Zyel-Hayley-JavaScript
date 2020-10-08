@@ -18,8 +18,9 @@ nav.nav-wrapper{
 	font-weight: 600px;
 }
 
-.slide img{
-
+.img-slide{
+  border-style: solid;
+	border-width:thick;
 }
 
 root-layout{

@@ -1,7 +1,3 @@
-function test() {
-	document.getElementById("test").innerHTML = "its working if you can see this";
-}
-
 //Reading names of recipes onto first page
 let fileArray = ["recipe/name.csv", "recipe/ingredients.csv", "recipe/directions.csv", "recipe/descriptions.csv"];
 
