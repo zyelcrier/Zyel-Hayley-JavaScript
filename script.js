@@ -52,8 +52,8 @@ function loadSelectRecipe(recID) {
 	document.getElementById("recDetail0").style.display = "block";
 	document.getElementById("recDetail1").style.display = "block";
 	document.getElementById("recDetail2").style.display = "block";
-	document.getElementById("recipe-descriptions").innerHTML = '';
-	Descriptions(recID);
+	document.getElementById("recipe-description").innerHTML = '';
+	Description(recID);
 	document.getElementById("recipe-ingredients").innerHTML = '';
 	Ingredients(recID);
 	document.getElementById("recipe-directions").innerHTML = '';
@@ -73,11 +73,8 @@ function Description (recID) {
 				var curID = parseInt(results.data[i].ID);
 				var bool = true;
 				bool = recID == curID;
-				console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
 				if (bool) {
-					console.log("here");
 					var text = document.createTextNode(results.data[i].Description);
-					console.log(text);
 					document.getElementById("recipe-description").appendChild(text);
 				};
 			};
@@ -98,14 +95,10 @@ function Ingredients(recID) {
 				var curID = parseInt(results.data[i].ID);
 				var bool = true;
 				bool = recID == curID;
-				console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
 				if (bool) {
-					console.log("here");
 					var li = document.createElement('li');
 					var text = document.createTextNode(results.data[i].Ingredients);
-					console.log(text);
 					li.appendChild(text);
-					console.log(li);
 					document.getElementById("recipe-ingredients").appendChild(li);
 				};
 			};
@@ -126,14 +119,10 @@ function Directions(recID) {
 				var curID = parseInt(results.data[i].ID);
 				var bool = true;
 				bool = recID == curID;
-				console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
 				if (bool) {
-					console.log("here");
 					var li = document.createElement('li');
 					var text = document.createTextNode(results.data[i].Directions);
-					console.log(text);
 					li.appendChild(text);
-					console.log(li);
 					document.getElementById("recipe-directions").appendChild(li);
 				};
 			};
