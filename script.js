@@ -52,12 +52,14 @@ function loadSelectRecipe(recID) {
 	document.getElementById("recDetail0").style.display = "block";
 	document.getElementById("recDetail1").style.display = "block";
 	document.getElementById("recDetail2").style.display = "block";
+	document.getElementById("recipe-descriptions").innerHTML = '';
+	Descriptions(recID);
 	document.getElementById("recipe-ingredients").innerHTML = '';
 	Ingredients(recID);
 	document.getElementById("recipe-directions").innerHTML = '';
 	Directions(recID);
-
 }
+
 function Description (recID) {
 	Papa.parse(fileArray[3], {
 		delimiter: ",",
