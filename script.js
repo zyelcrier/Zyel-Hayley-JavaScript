@@ -5,7 +5,6 @@ function recipeThumbBTNDiv(recID) {
 	var div = document.createElement('div');
 	div.classList.add('recipe-card');
 	div.classList.add('s12');
-	div.classList.add('m6');
 	var img = imgThumbDiv(recID);
 	div.appendChild(img);
 	return div;
@@ -50,6 +49,7 @@ function readRecipeFile(file) {
 };
 
 function loadSelectRecipe(recID) {
+	document.getElementById("recDetail0").style.display = "block";
 	document.getElementById("recDetail1").style.display = "block";
 	document.getElementById("recDetail2").style.display = "block";
 	document.getElementById("recipe-ingredients").innerHTML = '';

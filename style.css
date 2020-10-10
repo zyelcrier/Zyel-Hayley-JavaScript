@@ -40,6 +40,9 @@ root-layout{
 .recipe-card img{
 	max-height: 100px;
 }
+#recDetail0 {
+	display: none;
+}
 
 #recDetail1 {
 	display: none;
