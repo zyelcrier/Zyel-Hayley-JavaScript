@@ -50,9 +50,66 @@ function readRecipeFile(file) {
 };
 
 function loadSelectRecipe(recID) {
-	var li = document.createElement('li');
-	var text = document.createTextNode(recID);
-	li.appendChild(text);
 	document.getElementById("recipe-ingredients").innerHTML = '';
-	document.getElementById("recipe-ingredients").appendChild(li);
-}
+	Ingredients(recID);
+	 document.getElementById("recipe-directions").innerHTML = '';
+	Directions(recID);
+ 
+ }
+ 
+ function Ingredients(recID) {
+	Papa.parse(fileArray[1], {
+	    delimiter: ",",
+	    download: true,
+	    header: true,
+	    keepEmptyRows: false,
+	    skipEmptyLines: true,
+	    complete: function (results) {
+		   for (var i = 0; i < results.data.length; i++) {
+			  recID = parseInt(recID);
+			  var curID = parseInt(results.data[i].ID);
+			  var bool = true;
+			  bool = recID == curID;
+			  console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
+			  if (bool) {
+				 console.log("here");
+				 var li = document.createElement('li');
+				 var text = document.createTextNode(results.data[i].Ingredients);
+				 console.log(text);
+				 li.appendChild(text);
+				 console.log(li);
+				 document.getElementById("recipe-ingredients").appendChild(li);
+			  };
+		   };
+	    }
+	});
+ }
+ 
+ function Directions(recID) {
+	Papa.parse(fileArray[2], {
+	    delimiter: ",",
+	    download: true,
+	    header: true,
+	    keepEmptyRows: false,
+	    skipEmptyLines: true,
+	    complete: function (results) {
+		   for (var i = 0; i < results.data.length; i++) {
+			  recID = parseInt(recID);
+			  var curID = parseInt(results.data[i].ID);
+			  var bool = true;
+			  bool = recID == curID;
+			  console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
+			  if (bool) {
+				 console.log("here");
+				 var li = document.createElement('li');
+				 var text = document.createTextNode(results.data[i].Directions);
+				 console.log(text);
+				 li.appendChild(text);
+				 console.log(li);
+				 document.getElementById("recipe-directions").appendChild(li);
+			  };
+		   };
+	    }
+	});
+ }
+ 
