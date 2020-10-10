@@ -19,7 +19,7 @@ function imgThumbDiv(imgID) {
 	return img;
 }
 
-function recipeThumbBTN(recID){
+function recipeThumbBTN(recID) {
 	var btn = `
 							<button id ="${recID}" onclick="loadSelectRecipe(${recID})">
               </button>`;
@@ -38,7 +38,7 @@ function readRecipeFile(file) {
 			for (var i = 0; i < results.data.length; i++) {
 				var id = results.data[i].ID;
 				var thumbnail_div = document.getElementById("recipe-thumbnails");
-        var btn = recipeThumbBTN(id);
+				var btn = recipeThumbBTN(id);
 				thumbnail_div.innerHTML += btn;
 				var div = recipeThumbBTNDiv(id);
 				var text = document.createTextNode(results.data[i].RecipeName);
@@ -50,66 +50,67 @@ function readRecipeFile(file) {
 };
 
 function loadSelectRecipe(recID) {
+	document.getElementById("recDetail1").style.display = "block";
+	document.getElementById("recDetail2").style.display = "block";
 	document.getElementById("recipe-ingredients").innerHTML = '';
 	Ingredients(recID);
-	 document.getElementById("recipe-directions").innerHTML = '';
+	document.getElementById("recipe-directions").innerHTML = '';
 	Directions(recID);
- 
- }
- 
- function Ingredients(recID) {
+
+}
+
+function Ingredients(recID) {
 	Papa.parse(fileArray[1], {
-	    delimiter: ",",
-	    download: true,
-	    header: true,
-	    keepEmptyRows: false,
-	    skipEmptyLines: true,
-	    complete: function (results) {
-		   for (var i = 0; i < results.data.length; i++) {
-			  recID = parseInt(recID);
-			  var curID = parseInt(results.data[i].ID);
-			  var bool = true;
-			  bool = recID == curID;
-			  console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
-			  if (bool) {
-				 console.log("here");
-				 var li = document.createElement('li');
-				 var text = document.createTextNode(results.data[i].Ingredients);
-				 console.log(text);
-				 li.appendChild(text);
-				 console.log(li);
-				 document.getElementById("recipe-ingredients").appendChild(li);
-			  };
-		   };
-	    }
+		delimiter: ",",
+		download: true,
+		header: true,
+		keepEmptyRows: false,
+		skipEmptyLines: true,
+		complete: function (results) {
+			for (var i = 0; i < results.data.length; i++) {
+				recID = parseInt(recID);
+				var curID = parseInt(results.data[i].ID);
+				var bool = true;
+				bool = recID == curID;
+				console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
+				if (bool) {
+					console.log("here");
+					var li = document.createElement('li');
+					var text = document.createTextNode(results.data[i].Ingredients);
+					console.log(text);
+					li.appendChild(text);
+					console.log(li);
+					document.getElementById("recipe-ingredients").appendChild(li);
+				};
+			};
+		}
 	});
- }
- 
- function Directions(recID) {
+}
+
+function Directions(recID) {
 	Papa.parse(fileArray[2], {
-	    delimiter: ",",
-	    download: true,
-	    header: true,
-	    keepEmptyRows: false,
-	    skipEmptyLines: true,
-	    complete: function (results) {
-		   for (var i = 0; i < results.data.length; i++) {
-			  recID = parseInt(recID);
-			  var curID = parseInt(results.data[i].ID);
-			  var bool = true;
-			  bool = recID == curID;
-			  console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
-			  if (bool) {
-				 console.log("here");
-				 var li = document.createElement('li');
-				 var text = document.createTextNode(results.data[i].Directions);
-				 console.log(text);
-				 li.appendChild(text);
-				 console.log(li);
-				 document.getElementById("recipe-directions").appendChild(li);
-			  };
-		   };
-	    }
+		delimiter: ",",
+		download: true,
+		header: true,
+		keepEmptyRows: false,
+		skipEmptyLines: true,
+		complete: function (results) {
+			for (var i = 0; i < results.data.length; i++) {
+				recID = parseInt(recID);
+				var curID = parseInt(results.data[i].ID);
+				var bool = true;
+				bool = recID == curID;
+				console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
+				if (bool) {
+					console.log("here");
+					var li = document.createElement('li');
+					var text = document.createTextNode(results.data[i].Directions);
+					console.log(text);
+					li.appendChild(text);
+					console.log(li);
+					document.getElementById("recipe-directions").appendChild(li);
+				};
+			};
+		}
 	});
- }
- 
+}
