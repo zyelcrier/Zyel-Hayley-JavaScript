@@ -8,14 +8,19 @@ body {
     margin: 0;
 }
 
-nav.nav-wrapper{
-	
+nav{
+	background: cover;
 }
-.nav-wrapper a{
-	letter-spacing: 15px;
-	margin-bottom: 10px;
-	font-size: 700px;
-	font-weight: 600px;
+
+nav .brand-logo {
+	top:0;
+/*	width: 100%;*/
+	letter-spacing: 5px;
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 5.1em;
+    padding: 0;
 }
 
 .img-slide{
@@ -30,4 +35,8 @@ root-layout{
 .content{
 	margin-top: 30px;
 	height:100%;
+}
+
+.recipe-card img{
+	max-height: 100px;
 }

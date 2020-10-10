@@ -3,12 +3,11 @@
 
 <head>
 	<title>Food Baby</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Allura&family=Julius+Sans+One&display=swap" rel="stylesheet">
 	<!-- Compiled and minified CSS -->
-	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="images.js"></script>
 	<style>
 		body {
@@ -25,38 +24,79 @@
 	<script type="text/javascript" src="script.js"></script>
 </head>
 
-<body onload="changeImg();">
+<body onload="changeImg(); readRecipeFile(0);">
+
 	<div class="root-layout">
+
 		<nav>
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo center">Food<img src="images/whiteL.png" width="12%" height="6%" /> Baby</a>
 			</div>
 		</nav>
+
 		<div class="content center">
-			<div class="row">
+
+			<div class="section">
 				<div class="row">
+
 					<div class="col s12 m12 l5">
 						<img class="img-slide" name="slide" width="600" height="600" />
 					</div>
+
 					<div class="col s12 m12 l1">
 					</div>
+
 					<div class="col container s12 m12 l5">
 						<h1>Welcome to Food Baby!</h1>
 						<blockquote class="bq-intro"> Here at food baby we welcome our cravings. Food is good food is all. if you end up using any of our recipes please contact the creators of this page we would love to come over for dinner.<i class="material-icons small">sentiment_very_satisfied</i> Let us all remember that sharing is caring. and people who dont share are rude and rude people are mean...<i class="material-icons small">sentiment_very_dissatisfied</i>
 						</blockquote>
 					</div>
+
 					<div class="col s12 m12 l1">
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col recipe-cards">
-					<h1>Featured Recipes Below</h1>
+
+			<div class="divider"></div>
+
+			<div class="section">
+				<div class="row">
+					<div class="col recipe-cards">
+						<h1>Featured Recipes Below</h1>
+						<div id="recipe-thumbnails"></div>
+					</div>
 				</div>
+
+				<div class="divider"></div>
+
+				<div class="section">
+					<!--Select Recipe Displays-->
+					<div class="recipe-box">
+						<div class="row ">
+							<div class="col s12">
+								<div class="container">
+									<!-- Page Content goes here -->
+									<h1>Ingredients</h1>
+									<ul id="recipe-ingredients"></ul>
+								</div>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12">
+								<div class="container">
+									<!-- Page Content goes here -->
+									<h1>Directions</h1>
+									<ul id="recipe-directions"></ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<footer class="page-footer">
 		</footer>
 	</div>
 </body></html>
-
