@@ -58,6 +58,30 @@ function loadSelectRecipe(recID) {
 	Directions(recID);
 
 }
+function Description (recID) {
+	Papa.parse(fileArray[3], {
+		delimiter: ",",
+		download: true,
+		header: true,
+		keepEmptyRows: false,
+		skipEmptyLines: true,
+		complete: function (results) {
+			for (var i = 0; i < results.data.length; i++) {
+				recID = parseInt(recID);
+				var curID = parseInt(results.data[i].ID);
+				var bool = true;
+				bool = recID == curID;
+				console.log("bool: " + bool + " curID: " + curID + " recID: " + recID);
+				if (bool) {
+					console.log("here");
+					var text = document.createTextNode(results.data[i].Description);
+					console.log(text);
+					document.getElementById("recipe-description").appendChild(text);
+				};
+			};
+		}
+	});
+}
 
 function Ingredients(recID) {
 	Papa.parse(fileArray[1], {
